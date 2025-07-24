@@ -1,7 +1,6 @@
 package StepDefinition;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
-import org.testng.asserts.SoftAssert;
 
 import Base.BaseClass;
 import PageObject.Loging_in_Page;
@@ -12,7 +11,7 @@ import io.cucumber.java.en.When;
 public class SD_LoginPage {
 	
 	WebDriver Driver;
-	SoftAssert SA = new SoftAssert();
+	
 	
 	Loging_in_Page lp = new Loging_in_Page(BaseClass.getDriver());
 	Secure_Area_Page SAP = new Secure_Area_Page(BaseClass.getDriver());
@@ -23,14 +22,11 @@ public class SD_LoginPage {
 	{
 	String	Expected ="Test Login Page for Automation Testing Practice";
 	String Actual =lp.GetPagetitle();
-	SA.assertNotNull(lp.GetPagetitle());
-	SA.assertTrue(Expected.equals(Actual), "Title is not Matching 1");
-	//SA.assertEquals("Title is not Matching 2", Expected, Actual);
-	SA.assertAll();
+	Assert.assertNotNull(lp.GetPagetitle());
+	Assert.assertTrue("Title is not Matching 1",Expected.equals(Actual));
 	
-//	Assert.assertNotNull(lp.GetPagetitle());
-//	Assert.assertTrue("Title is not Matching 3",Expected.equals(lp.GetPagetitle()));
-//	Assert.assertEquals("Title is not Matching 4", Expected, lp.GetPagetitle());
+	
+
 	  
 	}
 	
@@ -60,10 +56,11 @@ public class SD_LoginPage {
 		String Expected ="You logged into a secure area!";
 		
 		
-		SA.assertNotNull(SAP.getflashmsg(),"Get Null Value in Flash");
-		SA.assertTrue(SAP.getflashmsg().equals(Expected),"Notable to Login to Secure Page-1");
-		SA.assertEquals( SAP.getflashmsg(), Expected, "Notable to Login to Secure Page-2");
-		SA.assertAll("The following asserts failed: Case Status should be "+status);
+		Assert.assertNotNull(SAP.getflashmsg(),"Get Null Value in Flash");
+		Assert.assertTrue(SAP.getflashmsg(),SAP.getflashmsg().equals(Expected));
+		
+		
+		
 		
 		
 	}
