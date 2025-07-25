@@ -24,10 +24,6 @@ public class SD_LoginPage {
 	String Actual =lp.GetPagetitle();
 	Assert.assertNotNull(lp.GetPagetitle());
 	Assert.assertTrue("Title is not Matching 1",Expected.equals(Actual));
-	
-	
-
-	  
 	}
 	
 	@When("Enter the UserName {string} and Password {string}")
@@ -58,11 +54,6 @@ public class SD_LoginPage {
 		
 		Assert.assertNotNull(SAP.getflashmsg(),"Get Null Value in Flash");
 		Assert.assertTrue(SAP.getflashmsg(),SAP.getflashmsg().equals(Expected));
-		
-		
-		
-		
-		
 	}
 
 	
